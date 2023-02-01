@@ -88,6 +88,25 @@ function createArrayOfNumbers(min, max) {
   console.log(createArrayOfNumbers(29, 34))
   console.log(createArrayOfNumbers())
 
+ // Метод includes(value) перевіряє, чи присутній в масиві елемент зі значенням value, і повертає true або false відповідно. Сфера застосування цього методу зводиться до ситуацій, коли необхідно перевірити, чи присутній елемент в масиві, і не важлива його позиція (індекс).
+
+function getCommonElements(array2, array3) {
+  const newArray1 = [];
+
+  for (let elt2 of array3) {
+    if (array3.includes(elt2)) {
+      newArray1.push(elt2);
+    }
+  }
+  return newArray1;
+}
+  console.log(getCommonElements([1, 2, 3], [2, 4]))
+  console.log(getCommonElements([1, 2, 3], [2, 1, 17, 19]))
+  console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]))
+  console.log(getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]))
+  console.log(getCommonElements([1, 2, 3], [10, 20, 30]))
+  
+
 // Цикл for можна використовувати для ітерації по масиву, тобто «перебрати» його поелементно.
 
 function calculateTotal(number) {
@@ -124,3 +143,17 @@ for (let i = 0; i < order.length; i += 1) {
 console.log(calculateTotalPrice([12, 85, 37, 4]))
 console.log(calculateTotalPrice([164, 48, 291]))
 console.log(calculateTotalPrice([412, 371, 94, 63, 176]))
+
+
+// Інструкція for...of оголошує цикл, який перебирає ітерабельні об'єкти, такі як масиви та рядки. Тіло циклу буде виконуватися для значення кожного елемента. Це хороша заміна циклу for, якщо не потрібен доступ до лічильника ітерації.
+
+function calculateTotalPrice1(order) {
+  let total = 0;
+  for (let value of order) {
+    total += value;
+  }
+  return total;
+}
+console.log(calculateTotalPrice1([12, 85, 37, 4]))
+console.log(calculateTotalPrice1([164, 48, 291]))
+console.log(calculateTotalPrice1([412, 371, 94, 63, 176]))
